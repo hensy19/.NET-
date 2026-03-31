@@ -1,0 +1,243 @@
+.mood-page-v3 {
+    min-height: 100vh;
+    background-color: #EBF8FF; /* Light blue background consistent with other log pages */
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.mood-header-v3 {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.back-link-v3 {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.back-link-v3:hover {
+    background: rgba(16, 81, 127, 0.08);
+}
+
+.title-group-v3 h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.title-group-v3 p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+}
+
+/* Form Section */
+.mood-form-v3 {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Cards */
+.mood-card-v3 {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.card-title-v3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+/* Emoji Grid */
+.emoji-grid-v3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.mood-btn-v3 {
+    cursor: pointer;
+}
+
+.mood-btn-v3 input {
+    display: none;
+}
+
+.btn-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border: 2px solid #F1F5F9;
+    border-radius: var(--radius-md);
+    transition: all 0.2s;
+    background: #F8FAFC;
+}
+
+.btn-content .emoji {
+    font-size: 2.5rem;
+}
+
+.btn-content .name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.mood-btn-v3:hover .btn-content {
+    border-color: #CBD5E1;
+    transform: translateY(-2px);
+}
+
+.mood-btn-v3 input:checked + .btn-content {
+    border-color: var(--primary-color);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(16, 81, 127, 0.05);
+}
+
+.mood-btn-v3 input:checked + .btn-content .name {
+    color: var(--primary-color);
+}
+
+/* Textarea */
+.textarea-wrapper-v3 {
+    background: #F8FAFC;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid #E2E8F0;
+    margin-bottom: 1.5rem;
+}
+
+.textarea-wrapper-v3 textarea {
+    width: 100%;
+    min-height: 100px;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1.05rem;
+    resize: none;
+    outline: none;
+}
+
+/* Footer */
+.card-footer-v3 {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-save-v3 {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-save-v3:hover {
+    background: #0D456F;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 81, 127, 0.2);
+}
+
+/* History List */
+.history-card-v3 {
+    width: 100%;
+    max-width: 800px;
+}
+
+.history-list-v3 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.history-item-v3 {
+    display: flex;
+    gap: 1.25rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.history-item-v3:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.history-emoji-v3 {
+    font-size: 2.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.history-content-v3 {
+    flex: 1;
+}
+
+.history-main-row-v3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.history-mood-name-v3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.history-timestamp-v3 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.history-desc-v3 {
+    font-size: 1rem;
+    color: #4A5568;
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .emoji-grid-v3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .mood-card-v3 {
+        padding: 1.5rem;
+    }
+}

@@ -1,0 +1,117 @@
+@{
+    ViewData["Title"] = "Mood Logger";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/Mood.css" />
+}
+
+<div class="mood-page-v3">
+    <!-- Header with Back Arrow -->
+    <div class="mood-header-v3">
+        <a asp-controller="Dashboard" asp-action="Index" class="back-link-v3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="back-arrow-svg">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <div class="title-group-v3">
+            <h1>Mood Logger</h1>
+            <p>Track your emotional well-being throughout your cycle</p>
+        </div>
+    </div>
+
+    <form method="post" action="/Dashboard/LogMood" class="mood-form-v3">
+        @Html.AntiForgeryToken()
+
+        <!-- Card 1: How's your mood today? -->
+        <div class="mood-card-v3">
+            <h2 class="card-title-v3">How's your mood today?</h2>
+            <div class="emoji-grid-v3">
+                <label class="mood-btn-v3">
+                    <input type="radio" name="mood" value="Happy" checked />
+                    <div class="btn-content">
+                        <span class="emoji">😊</span>
+                        <span class="name">Happy</span>
+                    </div>
+                </label>
+                <label class="mood-btn-v3">
+                    <input type="radio" name="mood" value="Calm" />
+                    <div class="btn-content">
+                        <span class="emoji">😌</span>
+                        <span class="name">Calm</span>
+                    </div>
+                </label>
+                <label class="mood-btn-v3">
+                    <input type="radio" name="mood" value="Sad" />
+                    <div class="btn-content">
+                        <span class="emoji">😔</span>
+                        <span class="name">Sad</span>
+                    </div>
+                </label>
+                <label class="mood-btn-v3">
+                    <input type="radio" name="mood" value="Angry" />
+                    <div class="btn-content">
+                        <span class="emoji">😠</span>
+                        <span class="name">Angry</span>
+                    </div>
+                </label>
+                <label class="mood-btn-v3">
+                    <input type="radio" name="mood" value="Tired" />
+                    <div class="btn-content">
+                        <span class="emoji">😴</span>
+                        <span class="name">Tired</span>
+                    </div>
+                </label>
+                <label class="mood-btn-v3">
+                    <input type="radio" name="mood" value="Excited" />
+                    <div class="btn-content">
+                        <span class="emoji">🤩</span>
+                        <span class="name">Excited</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <!-- Card 2: Why do you feel this way? -->
+        <div class="mood-card-v3">
+            <h2 class="card-title-v3">Why do you feel this way?</h2>
+            <div class="textarea-wrapper-v3">
+                <textarea name="description" placeholder="Add more details about how you are feeling..."></textarea>
+            </div>
+            <div class="card-footer-v3">
+                <button type="submit" class="btn-save-v3">Save Mood</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Card 3: Mood History -->
+    <div class="mood-card-v3 history-card-v3">
+        <h2 class="card-title-v3">Mood History</h2>
+        <div class="history-list-v3">
+            @if (ViewBag.MoodEntries != null)
+            {
+                @foreach (var entry in ViewBag.MoodEntries)
+                {
+                    string emoji = entry.Mood switch {
+                        "Happy" => "😊",
+                        "Calm" => "😌",
+                        "Sad" => "😔",
+                        "Angry" => "😠",
+                        "Tired" => "😴",
+                        "Excited" => "🤩",
+                        _ => "😶"
+                    };
+                    <div class="history-item-v3">
+                        <div class="history-emoji-v3">@emoji</div>
+                        <div class="history-content-v3">
+                            <div class="history-main-row-v3">
+                                <span class="history-mood-name-v3">@entry.Mood</span>
+                                <span class="history-timestamp-v3">@entry.Date.ToString("MMM dd, yyyy")</span>
+                            </div>
+                            <p class="history-desc-v3">@entry.Note</p>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "_AdminLayout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/AdminDashboard.css" asp-append-version="true" />
+}
+
+<div class="admin-dashboard-v3">
+    <div class="dashboard-header-v3">
+        <div class="header-info-v3">
+            <h1 class="page-title-v3">Dashboard Overview</h1>
+            <p class="subtitle-v3">Welcome back, here's what's happening with your app today.</p>
+        </div>
+        <div class="header-actions-v3">
+            <button class="btn-refresh-v3">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                Refresh Data
+            </button>
+            <button class="btn-primary-v3">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Content
+            </button>
+        </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid-v3">
+        <div class="stat-card-v3">
+            <div class="stat-top-v3">
+                <div class="stat-icon-v3 purple-v3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="stat-trend-v3 up">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    12.5%
+                </div>
+            </div>
+            <div class="stat-main-v3">
+                <span class="stat-label-v3">Total Users</span>
+                <h2 class="stat-value-v3">2,481</h2>
+            </div>
+        </div>
+
+        <div class="stat-card-v3">
+            <div class="stat-top-v3">
+                <div class="stat-icon-v3 pink-v3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.82-8.82 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+                <div class="stat-trend-v3 up">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    5.2%
+                </div>
+            </div>
+            <div class="stat-main-v3">
+                <span class="stat-label-v3">Active Users</span>
+                <h2 class="stat-value-v3">1,783</h2>
+            </div>
+        </div>
+
+        <div class="stat-card-v3">
+            <div class="stat-top-v3">
+                <div class="stat-icon-v3 blue-v3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <div class="stat-trend-v3 down">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    2.1%
+                </div>
+            </div>
+            <div class="stat-main-v3">
+                <span class="stat-label-v3">Period Logs</span>
+                <h2 class="stat-value-v3">352</h2>
+            </div>
+        </div>
+
+        <div class="stat-card-v3">
+            <div class="stat-top-v3">
+                <div class="stat-icon-v3 green-v3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <div class="stat-trend-v3 neutral">Today</div>
+            </div>
+            <div class="stat-main-v3">
+                <span class="stat-label-v3">Avg. Cycle</span>
+                <h2 class="stat-value-v3">28.4 days</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Row -->
+    <div class="dashboard-row-v3">
+        <div class="chart-column-v3">
+            <div class="content-card-v3">
+                <div class="card-header-v3">
+                    <h3 class="card-title-v3">User Growth</h3>
+                    <div class="card-options-v3">Total Users : 2,481 <span class="trend-percent-v3 up">+12.5%</span></div>
+                </div>
+                <div class="chart-container-v3">
+                    <!-- High Fidelity Line Chart SVG -->
+                    <svg width="100%" height="200" viewBox="0 0 1000 200" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.2" />
+                                <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M0 180 C 100 170, 200 140, 300 150 C 400 160, 500 110, 600 100 C 700 90, 800 60, 900 40 L 1000 20" fill="none" stroke="#8B5CF6" stroke-width="3" />
+                        <path d="M0 180 C 100 170, 200 140, 300 150 C 400 160, 500 110, 600 100 C 700 90, 800 60, 900 40 L 1000 20 L 1000 200 L 0 200 Z" fill="url(#chartGradient)" />
+                        
+                        <!-- Grid Lines -->
+                        <line x1="0" y1="180" x2="1000" y2="180" stroke="#F1F5F9" stroke-width="1" />
+                        <line x1="0" y1="140" x2="1000" y2="140" stroke="#F1F5F9" stroke-width="1" />
+                        <line x1="0" y1="100" x2="1000" y2="100" stroke="#F1F5F9" stroke-width="1" />
+                        <line x1="0" y1="60" x2="1000" y2="60" stroke="#F1F5F9" stroke-width="1" />
+                    </svg>
+                </div>
+                <div class="chart-labels-v3">
+                    <span>1,000</span>
+                    <span>1,500</span>
+                    <span>2,000</span>
+                    <span>2,500</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity-column-v3">
+            <div class="content-card-v3">
+                <div class="card-header-v3">
+                    <h3 class="card-title-v3">Recent User Activity</h3>
+                    <a href="#" class="view-all-v3">View All</a>
+                </div>
+                <div class="activity-table-container-v3">
+                    <table class="activity-table-v3">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>ID</th>
+                                <th>Status</th>
+                                <th>Last Active</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var activity in ViewBag.RecentActivity)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="user-cell-v3">
+                                            <img src="https://ui-avatars.com/api/?name=@activity.User&background=random" alt="User" class="user-avatar-v3" />
+                                            <span>@activity.User</span>
+                                        </div>
+                                    </td>
+                                    <td>#CLO-@activity.User.Substring(0, 3).ToUpper()</td>
+                                    <td><span class="status-badge-v3 online">Online</span></td>
+                                    <td>@activity.Time</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+.admin-users-v3 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* User Stats Summary */
+.users-stats-grid-v3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.user-stat-card-v3 {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.user-stat-card-v3 .stat-info-v3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-stat-card-v3 .stat-label-v3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.user-stat-card-v3 .stat-value-v3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0.15rem 0 0;
+}
+
+.table-search-v3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #F1F5F9;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  width: 250px;
+}
+
+.table-search-v3 input {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.table-search-v3 input:focus {
+  outline: none;
+}
+
+.table-search-v3 svg {
+  color: #94A3B8;
+}
+
+/* Specific to Admin Users */
+.users-table-container-v3 {
+  margin-top: 0.5rem;
+}
+
+.users-table-v3 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table-v3 th {
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94A3B8;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.users-table-v3 td {
+  padding: 1.25rem 0.5rem;
+  font-size: 0.9rem;
+  color: #475569;
+  border-bottom: 1px solid #F8FAFC;
+}
+
+.action-btns-v3 {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn-v3 {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #E2E8F0;
+  background-color: white;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn-v3:hover {
+  background-color: #F8FAFC;
+  color: #1E293B;
+  border-color: #CBD5E1;
+}
+
+.action-btn-v3.delete {
+  color: #EF4444;
+}
+
+.action-btn-v3.delete:hover {
+  background-color: #FEF2F2;
+  border-color: #FCA5A5;
+}
+
+/* Badge Offline */
+.status-badge-v3.offline {
+  background-color: #FEE2E2;
+  color: #B91C1C;
+}

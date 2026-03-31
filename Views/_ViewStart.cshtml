@@ -1,0 +1,16 @@
+@{
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+    
+    if (string.Equals(controller, "Dashboard", StringComparison.OrdinalIgnoreCase))
+    {
+        Layout = "_DashboardLayout";
+    }
+    else if (string.Equals(controller, "Admin", StringComparison.OrdinalIgnoreCase))
+    {
+        Layout = "_AdminLayout";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}

@@ -1,0 +1,69 @@
+@{
+    ViewData["Title"] = "Log Period";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/LogPeriod.css" />
+}
+
+<div class="log-period-page-v3">
+    <!-- Header with Back Arrow -->
+    <div class="log-header-v3">
+        <a asp-controller="Dashboard" asp-action="Index" class="back-link-v3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <div class="title-group-v3">
+            <h1>Log Period</h1>
+            <p>Record your period dates and flow</p>
+        </div>
+    </div>
+
+    <!-- Main Logging Card -->
+    <div class="log-card-v3">
+        <form method="post" action="/log-period" class="log-form-v3">
+            @Html.AntiForgeryToken()
+            
+            <div class="form-group-v3">
+                <label class="label-v3">Start Date</label>
+                <input type="date" name="startDate" class="input-v3" placeholder="dd-mm-yyyy" required />
+            </div>
+
+            <div class="form-group-v3">
+                <label class="label-v3">End Date</label>
+                <input type="date" name="endDate" class="input-v3" placeholder="dd-mm-yyyy" required />
+            </div>
+
+            <div class="flow-section-v3">
+                <label class="label-v3">Flow</label>
+                <div class="radio-group-v3">
+                    <label class="radio-item-v3">
+                        <input type="radio" name="flow" value="Light" />
+                        <span class="radio-mark"></span>
+                        <span class="radio-label">Light flow</span>
+                    </label>
+                    <label class="radio-item-v3">
+                        <input type="radio" name="flow" value="Medium" checked />
+                        <span class="radio-mark"></span>
+                        <span class="radio-label">Medium flow</span>
+                    </label>
+                    <label class="radio-item-v3">
+                        <input type="radio" name="flow" value="Heavy" />
+                        <span class="radio-mark"></span>
+                        <span class="radio-label">Heavy flow</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card-actions-v3">
+                <a asp-controller="Dashboard" asp-action="Index" class="btn-back-link">Back</a>
+                <button type="submit" class="btn-continue-v3">Continue</button>
+            </div>
+        </form>
+
+        @if (TempData["PeriodMessage"] != null)
+        {
+            <p class="status-msg-v3">@TempData["PeriodMessage"]</p>
+        }
+    </div>
+</div>

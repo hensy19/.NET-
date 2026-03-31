@@ -1,0 +1,251 @@
+.history-page-v3 {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #F7FAFD; /* Matches the light blue-grey background from image */
+    min-height: 100vh;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.history-header-v3 {
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.history-header-v3 h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #10517F; /* Dark blue from design */
+    margin: 0;
+}
+
+.history-header-v3 p {
+    color: #718096;
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+}
+
+/* Stats Row */
+.stats-grid-v3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card-v3 {
+    background: var(--white);
+    padding: 1.75rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid #E2E8F0;
+    transition: transform 0.2s;
+}
+
+.stat-card-v3 .label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #4A5568;
+}
+
+.stat-card-v3 .value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #10517F;
+}
+
+.stat-card-v3 .value.value-blue {
+    color: #3182CE;
+}
+
+.stat-card-v3 .value.value-black {
+    color: #1A202C;
+}
+
+/* Main Table Card */
+.history-table-card-v3 {
+    background: var(--white);
+    border-radius: 1rem;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.history-table-v3 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table-v3 th {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #4A88B7;
+    background: #EEF7FF; /* Light blue header from design */
+    text-align: left;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.history-table-v3 td {
+    padding: 1.25rem 1.5rem;
+    font-size: 1rem;
+    color: #2D3748;
+    border-bottom: 1px solid #EDF2F7;
+}
+
+.history-table-v3 tr:last-child td {
+    border-bottom: none;
+}
+
+.history-table-v3 td.bold {
+    font-weight: 500;
+    color: #1A202C;
+}
+
+.actions-header {
+    text-align: right !important;
+    padding-right: 2rem !important;
+}
+
+/* Flow Badges - Exact Parity with Design */
+.flow-badge {
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.flow-badge.is-medium {
+    background-color: #F1F9E3; /* Yellow-green */
+    color: #6B8E23;
+}
+
+.flow-badge.is-heavy {
+    background-color: #FFE5E5; /* Light red */
+    color: #D64545;
+}
+
+.flow-badge.is-light {
+    background-color: #D0E4F2; /* Light blue */
+    color: #5E8DB2;
+}
+
+/* Action Icons */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-right: 1rem;
+}
+
+.action-btn-v3 {
+    background: none;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #2D3748;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn-v3:hover {
+    background: #F1F5F9;
+}
+
+.action-btn-v3.delete {
+    color: #EF4444;
+}
+
+.action-btn-v3.delete:hover {
+    background: #FEF2F2;
+}
+
+/* Insights Bar - Deep Blue Professional Bar */
+.insights-bar-v3 {
+    background: #155383; /* Correct deep blue from design */
+    border-radius: 0.75rem;
+    padding: 2.5rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.insights-header-v3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.insights-header-v3 h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.insights-grid-v3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.insight-column-v3 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.insight-label-v3 {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.insight-value-v3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+}
+
+.insight-detail-v3 {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+    .stats-grid-v3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .insights-grid-v3 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .stats-grid-v3 {
+        grid-template-columns: 1fr;
+    }
+    .history-page-v3 {
+        padding: 2rem 1.5rem;
+    }
+    .history-header-v3 h1 {
+        font-size: 1.75rem;
+    }
+}

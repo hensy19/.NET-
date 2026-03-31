@@ -1,0 +1,56 @@
+@{
+    var path = Context.Request.Path.Value?.ToLower() ?? "";
+}
+
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <a asp-controller="Public" asp-action="Home">
+            <img src="~/images/logo.png" alt="cleo logo" />
+        </a>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a class="nav-item @(path == "/dashboard" ? "active" : "")" asp-controller="Dashboard" asp-action="Index">
+            <span class="icon">🏠</span>
+            <span class="text">Dashboard</span>
+        </a>
+        <a class="nav-item @(path == "/log-period" ? "active" : "")" asp-controller="Dashboard" asp-action="LogPeriod">
+            <span class="icon">🩸</span>
+            <span class="text">Period Log</span>
+        </a>
+        <a class="nav-item @(path == "/log-symptoms" ? "active" : "")" asp-controller="Dashboard" asp-action="LogSymptoms">
+            <span class="icon">🌡️</span>
+            <span class="text">Symptoms</span>
+        </a>
+        <a class="nav-item @(path == "/mood" ? "active" : "")" asp-controller="Dashboard" asp-action="Mood">
+            <span class="icon">🎭</span>
+            <span class="text">Mood</span>
+        </a>
+        <a class="nav-item @(path == "/calendar" ? "active" : "")" asp-controller="Dashboard" asp-action="Calendar">
+            <span class="icon">📅</span>
+            <span class="text">Calendar</span>
+        </a>
+        <a class="nav-item @(path == "/notes" ? "active" : "")" asp-controller="Dashboard" asp-action="Notes">
+            <span class="icon">📝</span>
+            <span class="text">Notes</span>
+        </a>
+        <a class="nav-item @(path == "/tips" ? "active" : "")" asp-controller="Dashboard" asp-action="Tips">
+            <span class="icon">💡</span>
+            <span class="text">Smart Tips</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <a class="nav-item" asp-controller="Dashboard" asp-action="Profile">
+             <span class="icon">👤</span>
+             <span class="text">Profile</span>
+        </a>
+        <form asp-controller="Public" asp-action="Logout" method="post" class="logout-form">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="logout-btn">
+                <span class="icon">🚪</span>
+                <span class="text">Logout</span>
+            </button>
+        </form>
+    </div>
+</aside>

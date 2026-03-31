@@ -1,0 +1,74 @@
+@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CLEO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/variables.css" />
+    <link rel="stylesheet" href="~/css/global.css" />
+    <link rel="stylesheet" href="~/css/Login.css" />
+</head>
+<body style="margin: 0; padding: 0; background-color: white;">
+    <div class="auth-page-v3">
+        <!-- Back Navigation Icon -->
+        <a asp-controller="Public" asp-action="Home" class="back-nav-v3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </a>
+
+        <div class="auth-container-v3">
+            <!-- Left: Illustration Box -->
+            <div class="auth-visual-box-v3">
+                <img src="~/images/signin.svg" alt="Sign In Illustration" />
+            </div>
+
+            <!-- Right: Form Section -->
+            <div class="auth-form-section-v3">
+                <div class="auth-lotus-logo-v3">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10517F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L9 9H15L12 2Z"></path>
+                        <path d="M12 22L15 15H9L12 22Z"></path>
+                        <path d="M22 12L15 9V15L22 12Z"></path>
+                        <path d="M2 12L9 15V9L2 12Z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+
+                <div class="auth-header-v3">
+                    <h1>Hello Again!</h1>
+                    <p>Welcome back you have been missed!</p>
+                </div>
+
+                <form method="post" action="/login" class="auth-form-v3">
+                    @Html.AntiForgeryToken()
+                    <div class="auth-group-v3">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="abc@example.com" required />
+                    </div>
+                    <div class="auth-group-v3">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Enter your password" required />
+                        <div class="auth-link-right-v3">
+                            <a href="/Account/ForgotPassword">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="auth-btn-primary-v3">
+                        Sign in
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </button>
+                </form>
+
+                <div class="auth-footer-v3">
+                    <p>Don't have an account? <a href="/signup">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

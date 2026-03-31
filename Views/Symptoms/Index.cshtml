@@ -1,0 +1,105 @@
+@{
+    ViewData["Title"] = "Symptom Logger";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/LogSymptoms.css" />
+}
+
+<div class="symptom-logger-page-v3">
+    <!-- Header with Back Arrow -->
+    <div class="symptom-header-v3">
+        <a asp-controller="Dashboard" asp-action="Index" class="back-link-v3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <div class="title-group-v3">
+            <h1>Symptom Logger</h1>
+            <p>Track your physical and emotional symptoms</p>
+        </div>
+    </div>
+
+    <form method="post" action="/Dashboard/LogSymptoms" class="symptom-form-v3">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+
+        <!-- Card 1: Select Your Symptoms -->
+        <div class="symptom-card-v3">
+            <h2 class="card-title-v3">Select Your Symptoms</h2>
+            <div class="symptoms-grid-v3">
+                <label class="symptom-btn-v3">
+                    <input type="checkbox" name="symptoms" value="Cramps" />
+                    <div class="btn-content">
+                        <span class="icon">🤕</span>
+                        <span class="name">Cramps</span>
+                    </div>
+                </label>
+                <label class="symptom-btn-v3">
+                    <input type="checkbox" name="symptoms" value="Bloating" />
+                    <div class="btn-content">
+                        <span class="icon">🎈</span>
+                        <span class="name">Bloating</span>
+                    </div>
+                </label>
+                <label class="symptom-btn-v3">
+                    <input type="checkbox" name="symptoms" value="Headache" />
+                    <div class="btn-content">
+                        <span class="icon">🤯</span>
+                        <span class="name">Headache</span>
+                    </div>
+                </label>
+                <label class="symptom-btn-v3">
+                    <input type="checkbox" name="symptoms" value="Fatigue" />
+                    <div class="btn-content">
+                        <span class="icon">😴</span>
+                        <span class="name">Fatigue</span>
+                    </div>
+                </label>
+                <label class="symptom-btn-v3">
+                    <input type="checkbox" name="symptoms" value="Anxiety" />
+                    <div class="btn-content">
+                        <span class="icon">😟</span>
+                        <span class="name">Anxiety</span>
+                    </div>
+                </label>
+                <label class="symptom-btn-v3">
+                    <input type="checkbox" name="symptoms" value="Mood Swings" />
+                    <div class="btn-content">
+                        <span class="icon">🎭</span>
+                        <span class="name">Mood Swings</span>
+                    </div>
+                </label>
+                <label class="symptom-btn-v3">
+                    <input type="checkbox" name="symptoms" value="High Energy" />
+                    <div class="btn-content">
+                        <span class="icon">⚡</span>
+                        <span class="name">High Energy</span>
+                    </div>
+                </label>
+                <label class="symptom-btn-v3">
+                    <input type="checkbox" name="symptoms" value="Increased Appetite" />
+                    <div class="btn-content">
+                        <span class="icon">🍔</span>
+                        <span class="name">Increased Appetite</span>
+                    </div>
+                </label>
+            </div>
+            <div class="card-footer-v3">
+                <button type="submit" class="btn-save-v3">Save Symptoms</button>
+            </div>
+        </div>
+
+        <!-- Card 2: Additional Notes -->
+        <div class="notes-card-v3">
+            <h2 class="card-title-v3">Additional Notes</h2>
+            <div class="textarea-wrapper-v3">
+                <textarea name="notes" placeholder="Add Additional symptoms about how you are feeling today..."></textarea>
+            </div>
+        </div>
+    </form>
+
+    @if (TempData["SymptomsMessage"] != null)
+    {
+        <p class="status-msg-v3">@TempData["SymptomsMessage"]</p>
+    }
+</div>

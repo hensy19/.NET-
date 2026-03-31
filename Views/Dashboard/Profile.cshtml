@@ -1,0 +1,99 @@
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "_DashboardLayout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/Profile.css" />
+}
+
+<div class="profile-v2">
+    <div class="profile-header-v2">
+        <h1>My Profile</h1>
+        <p>Manage your account and cycle information</p>
+    </div>
+
+    <!-- User Banner Card -->
+    <div class="profile-banner-card">
+        <div class="banner-avatar">
+            <img src="https://ui-avatars.com/api/?name=Hensy+Patel&background=EBF8FF&color=10517F&size=100" alt="Hensy" />
+        </div>
+        <div class="banner-info">
+            <h2>@ViewBag.Profile.Name</h2>
+            <p>@ViewBag.Profile.Email</p>
+        </div>
+    </div>
+
+    <!-- Info Form Section -->
+    <div class="profile-section-card">
+        <div class="form-grid-v2">
+            <div class="form-group-v2">
+                <label>👤 Full Name</label>
+                <input type="text" value="@ViewBag.Profile.Name" readonly />
+            </div>
+            <div class="form-group-v2">
+                <label>✉️ Email Address</label>
+                <input type="email" value="@ViewBag.Profile.Email" readonly />
+            </div>
+            <div class="form-group-v2">
+                <label>📅 Date of Birth</label>
+                <input type="text" value="01/01/2005" readonly />
+            </div>
+        </div>
+
+        <h3 class="subsection-title">Cycle information</h3>
+        <div class="form-grid-v2">
+            <div class="form-group-v2">
+                <label>Age</label>
+                <input type="text" value="19" readonly />
+            </div>
+            <div class="form-group-v2">
+                <label>Avg cycle length (days)</label>
+                <input type="text" value="28" readonly />
+            </div>
+            <div class="form-group-v2">
+                <label>Avg period length (days)</label>
+                <input type="text" value="5" readonly />
+            </div>
+        </div>
+
+        <div class="form-actions-v2">
+            <button class="btn-profile-primary">Update Profile</button>
+            <button class="btn-profile-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Stats Grid Row -->
+    <div class="profile-stats-row">
+        <div class="stat-pill-card">
+            <p class="pill-label">Member since</p>
+            <h3 class="pill-value">@ViewBag.Profile.JoinDate</h3>
+        </div>
+        <div class="stat-pill-card">
+            <p class="pill-label">Cycles Tracked</p>
+            <h3 class="pill-value text-blue">@ViewBag.Profile.TotalCycles</h3>
+        </div>
+        <div class="stat-pill-card">
+            <p class="pill-label">Notes Created</p>
+            <h3 class="pill-value">@ViewBag.Profile.TotalMoods</h3>
+        </div>
+        <div class="stat-pill-card">
+            <p class="pill-label">Mood Entries</p>
+            <h3 class="pill-value">@ViewBag.Profile.TotalMoods</h3>
+        </div>
+    </div>
+
+    <!-- Security Sections -->
+    <div class="profile-section-card">
+        <h3 class="subsection-title-danger">Delete Account</h3>
+        <p class="danger-desc">Want to delete your account?</p>
+        <button class="btn-danger-outline">Delete Account</button>
+        <p class="danger-warning">Warning: This action cannot be undone. All your data will be permanently deleted.</p>
+    </div>
+
+    <form asp-controller="Public" asp-action="Logout" method="post" class="profile-logout-form">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn-profile-logout">
+            <span>🚪</span> Logout
+        </button>
+    </form>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin Panel CLEO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/global.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/variables.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/AdminSidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="admin-body">
+    <div class="admin-wrapper">
+        @await Html.PartialAsync("_AdminSidebar")
+
+        <div class="admin-content-area">
+            <header class="admin-top-header">
+                <div class="top-header-left">
+                    <div class="admin-search-bar">
+                        <span>🔍</span>
+                        <input type="text" placeholder="Search..." />
+                    </div>
+                </div>
+                <div class="top-header-right">
+                    <button class="nav-icon-btn">🔔</button>
+                    <div class="admin-profile-dropdown">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=EBF8FF&color=10517F" alt="Admin" class="admin-avatar" id="admin-profile-trigger" />
+                        <div class="admin-profile-menu" id="admin-profile-menu">
+                            <a class="admin-dropdown-item" href="#">👤 Profile</a>
+                            <a class="admin-dropdown-item" href="#">🔒 Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="admin-main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Admin Profile Dropdown
+        document.getElementById('admin-profile-trigger').addEventListener('click', function() {
+            document.getElementById('admin-profile-menu').classList.toggle('active');
+        });
+        document.addEventListener('click', function(e) {
+            const trigger = document.getElementById('admin-profile-trigger');
+            const menu = document.getElementById('admin-profile-menu');
+            if (!trigger.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

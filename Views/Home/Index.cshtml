@@ -1,0 +1,99 @@
+@{
+    ViewData["Title"] = "Home";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/Home.css" />
+}
+<div class="home-page">
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Rhythm. Insight. Balance.</h1>
+                <p class="hero-subtitle">
+                    Track your menstrual patterns, understand phase-based changes,
+                    and receive personalized recommendations to support better health and overall well-being.
+                </p>
+                <div class="hero-buttons">
+                    <a asp-controller="Public" asp-action="Signup" class="btn btn-primary">Get Started &gt;</a>
+                    <a href="#features" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="~/images/female.png" alt="Woman illustration" class="hero-image" />
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="features">
+        <div class="features-container">
+            <h2 class="section-title">Everything You Need to Know About Your Cycle</h2>
+            <p class="section-subtitle">Powerful features designed to help you understand and predict your menstrual cycle with precision.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon icon-tracking"></div>
+                    <h3 class="feature-title">Smart Cycle Tracking</h3>
+                    <p class="feature-description">Log period dates, flow intensity, and symptoms with structured monitoring.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-predictive"></div>
+                    <h3 class="feature-title">Predictive Insights</h3>
+                    <p class="feature-description">Receive accurate predictions for upcoming cycles and fertile windows.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-analytics"></div>
+                    <h3 class="feature-title">Health Analytics</h3>
+                    <p class="feature-description">Identify trends and patterns to better understand your menstrual health.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-doctor"></div>
+                    <h3 class="feature-title">Doctor Consultation</h3>
+                    <p class="feature-description">Access secure one-to-one online consultation with certified professionals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-wellness"></div>
+                    <h3 class="feature-title">Personalized Wellness</h3>
+                    <p class="feature-description">Get diet and exercise recommendations tailored to different cycle phases.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-calendar"></div>
+                    <h3 class="feature-title">Calendar View</h3>
+                    <p class="feature-description">Visualize your menstrual history through an organized monthly calendar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works-section" id="about">
+        <div class="how-container">
+            <h2 class="section-title">How cleo works</h2>
+            <p class="section-subtitle">Get started in three simple steps and take control of your menstrual health.</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Create Your Account</h3>
+                    <p class="step-description">Sign up in seconds and start your journey to better cycle awareness.</p>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Log Your Cycle</h3>
+                    <p class="step-description">Track periods, symptoms, and moods with our intuitive interface.</p>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Get Insights</h3>
+                    <p class="step-description">Receive personalized predictions and health recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-card">
+            <h2 class="cta-title">Ready to Start Your Journey?</h2>
+            <p class="cta-subtitle">Join thousands of women who trust cleo for their menstrual tracking and insights.</p>
+            <a asp-controller="Public" asp-action="Signup" class="btn btn-primary cta-button">Start Tracking Now &gt;</a>
+        </div>
+    </section>
+</div>

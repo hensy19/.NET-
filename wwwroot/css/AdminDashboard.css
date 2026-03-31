@@ -1,0 +1,244 @@
+.admin-dashboard-v3 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard-header-v3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-title-v3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0 0 0.25rem;
+}
+
+.subtitle-v3 {
+  font-size: 0.95rem;
+  color: #64748B;
+  margin: 0;
+}
+
+.header-actions-v3 {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-refresh-v3, .btn-primary-v3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-refresh-v3 {
+  background-color: white;
+  border: 1px solid #E2E8F0;
+  color: #475569;
+}
+
+.btn-refresh-v3:hover {
+  background-color: #F8FAFC;
+}
+
+.btn-primary-v3 {
+  background-color: #10517F;
+  color: white;
+  border: none;
+}
+
+.btn-primary-v3:hover {
+  background-color: #0D4166;
+}
+
+/* Stats Grid */
+.stats-grid-v3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card-v3 {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stat-top-v3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.stat-icon-v3 {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon-v3.purple-v3 { background-color: #F3E8FF; color: #8B5CF6; }
+.stat-icon-v3.pink-v3 { background-color: #FCE7F3; color: #EC4899; }
+.stat-icon-v3.blue-v3 { background-color: #E0F2FE; color: #0EA5E9; }
+.stat-icon-v3.green-v3 { background-color: #DCFCE7; color: #22C55E; }
+
+.stat-trend-v3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-trend-v3.up { background-color: #DCFCE7; color: #15803D; }
+.stat-trend-v3.down { background-color: #FEE2E2; color: #B91C1C; }
+.stat-trend-v3.neutral { background-color: #F1F5F9; color: #475569; }
+
+.stat-main-v3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label-v3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.stat-value-v3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0.25rem 0 0;
+}
+
+/* Dashboard Content Row */
+.dashboard-row-v3 {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5rem;
+}
+
+.content-card-v3 {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card-header-v3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.card-title-v3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0;
+}
+
+.card-options-v3 {
+  font-size: 0.85rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.trend-percent-v3.up { color: #22C55E; }
+
+.chart-container-v3 {
+  padding: 1rem 0;
+  position: relative;
+}
+
+.chart-labels-v3 {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  font-size: 0.75rem;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.view-all-v3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #10517F;
+  text-decoration: none;
+}
+
+.activity-table-container-v3 {
+  margin-top: 0.5rem;
+}
+
+.activity-table-v3 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.activity-table-v3 th {
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94A3B8;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.activity-table-v3 td {
+  padding: 1rem 0.5rem;
+  font-size: 0.85rem;
+  color: #475569;
+  border-bottom: 1px solid #F8FAFC;
+}
+
+.user-cell-v3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.user-avatar-v3 {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.status-badge-v3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+}
+
+.status-badge-v3.online {
+  background-color: #DCFCE7;
+  color: #15803D;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-row-v3 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,162 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_DashboardLayout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/Dashboard.css" />
+}
+
+<div class="dashboard-v2">
+    <div class="welcome-header">
+        <h1>Welcome back, @ViewBag.UserName!</h1>
+        <p>Here's your cycle overview for today</p>
+    </div>
+
+    <div class="top-stats-grid">
+        <!-- Next Period Card -->
+        <div class="stat-card-v2">
+            <div class="card-top">
+                <div class="card-label">
+                    <p class="label-small">Next Period</p>
+                    <h2 class="label-large">@ViewBag.NextPeriodDate</h2>
+                </div>
+                <div class="card-icon icon-blue">
+                    <span>📅</span>
+                </div>
+            </div>
+            <p class="card-comment">In @ViewBag.DaysUntilNextPeriod days</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: @(Math.Clamp(100 - (ViewBag.DaysUntilNextPeriod * 100 / 28), 0, 100))%;"></div>
+            </div>
+        </div>
+
+        <!-- Ovulation Card -->
+        <div class="stat-card-v2">
+            <div class="card-top">
+                <div class="card-label">
+                    <p class="label-small">Ovulation Day</p>
+                    <h2 class="label-large">@ViewBag.OvulationDay</h2>
+                </div>
+                <div class="card-icon icon-purple">
+                    <span>💜</span>
+                </div>
+            </div>
+            <p class="card-comment">@(ViewBag.OvulationDaysUntil > 0 ? $"In {ViewBag.OvulationDaysUntil} days" : "Passed")</p>
+            <span class="status-pill-purple">Fertile Window</span>
+        </div>
+
+        <!-- Cycle Day Card -->
+        <div class="stat-card-v2 card-dark-blue">
+            <div class="card-top">
+                <div class="card-label">
+                    <p class="label-small-white">Current cycle Day</p>
+                    <h2 class="label-xl-white">@ViewBag.CycleDay</h2>
+                    <p class="label-small-white">of @ViewBag.CycleLength days</p>
+                </div>
+                <div class="progress-ring-container">
+                    <div class="progress-ring-v2" style="--progress: @(ViewBag.CycleDay * 100 / ViewBag.CycleLength)%;">
+                        <span>@(ViewBag.CycleDay * 100 / ViewBag.CycleLength)%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="middle-layout">
+        <div class="left-column">
+            <!-- Quick Actions -->
+            <div class="section-card quick-actions-card">
+                <div class="section-header">
+                    <span class="section-icon">💧</span>
+                    <h3>Quick Actions</h3>
+                </div>
+                <div class="actions-buttons-v2">
+                    <a asp-action="LogPeriod" class="btn-action-primary">+ Log Period</a>
+                    <a asp-action="Notes" class="btn-action-primary">Add Note</a>
+                </div>
+            </div>
+
+            <!-- Mood Section -->
+            <div class="section-card mood-select-card">
+                <h3>How are you feeling today?</h3>
+                <div class="mood-grid-v2">
+                    <div class="mood-option @(ViewBag.Mood == "Happy" ? "active" : "")">Happy</div>
+                    <div class="mood-option @(ViewBag.Mood == "Calm" ? "active" : "")">Calm</div>
+                    <div class="mood-option @(ViewBag.Mood == "Tired" ? "active" : "")">Tired</div>
+                    <div class="mood-option @(ViewBag.Mood == "Sad" ? "active" : "")">Sad</div>
+                </div>
+            </div>
+
+            <!-- Insights Section -->
+            <div class="section-card insights-card">
+                <div class="section-header">
+                    <span class="section-icon">📈</span>
+                    <h3>Cycle Insights</h3>
+                </div>
+                <div class="insights-list">
+                    <div class="insight-item blue-bg">
+                        <span class="dot-blue"></span>
+                        <div class="insight-text">
+                            <strong>Regular Cycle Pattern</strong>
+                            <p>Your cycle has been consistent for the past 3 months</p>
+                        </div>
+                    </div>
+                    <div class="insight-item purple-bg">
+                        <span class="dot-purple"></span>
+                        <div class="insight-text">
+                            <strong>Approaching Fertile Window</strong>
+                            <p>Your fertile window starts in 5 days</p>
+                        </div>
+                    </div>
+                    <div class="insight-item blue-bg">
+                        <span class="dot-blue"></span>
+                        <div class="insight-text">
+                            <strong>Average Cycle Length</strong>
+                            <p>Your average cycle is 28 days</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <!-- Recent Notes -->
+            <div class="section-card notes-widget">
+                <h3>Recent Notes</h3>
+                <div class="notes-stack">
+                    @if (ViewBag.Notes != null)
+                    {
+                        @foreach (var note in ViewBag.Notes)
+                        {
+                            <div class="note-pill">
+                                <p class="note-preview">@note</p>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="center-btn">
+                    <a asp-action="Notes" class="btn-text">View All Notes</a>
+                </div>
+            </div>
+
+            <!-- Health Tip -->
+            <div class="health-tip-purple">
+                <div class="tip-header-v2">
+                    <span>💡</span>
+                    <h3>Today's Health Tip</h3>
+                </div>
+                <p class="tip-body-v2">
+                    Stay hydrated! Drinking plenty of water can help reduce bloating and PMS symptoms during your cycle.
+                </p>
+                <a asp-action="Tips" class="btn-more-tips">more tips</a>
+            </div>
+
+            <!-- Reminders -->
+            <div class="section-card reminders-card">
+                <h3>Reminders</h3>
+                <p class="reminder-text">Get notified before your period starts</p>
+                <button class="btn-reminders">Manage Reminders</button>
+            </div>
+        </div>
+    </div>
+</div>

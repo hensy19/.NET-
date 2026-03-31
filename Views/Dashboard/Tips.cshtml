@@ -1,0 +1,69 @@
+@{
+    ViewData["Title"] = "Health Tips";
+    Layout = "_DashboardLayout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/Tips.css" />
+}
+
+<div class="tips-page-v3">
+    <!-- Header with Back Arrow -->
+    <div class="tips-header-v3">
+        <a asp-controller="Dashboard" asp-action="Index" class="back-link-v3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="back-arrow-svg">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <div class="title-group-v3">
+            <h1>Health & Self-Care Tips</h1>
+            <p>Personalized advice based on your current cycle phase</p>
+        </div>
+    </div>
+
+    <!-- Filter Toolbar -->
+    <div class="tips-filter-bar">
+        <button class="tab-btn active" data-filter="all">All Tips</button>
+        <button class="tab-btn" data-filter="Quick-Nutrition">Quick Nutrition</button>
+        <button class="tab-btn" data-filter="Exercise">Exercise</button>
+        <button class="tab-btn" data-filter="PMS-Relief">PMS Relief</button>
+        <button class="tab-btn" data-filter="Hygiene">Hygiene</button>
+        <button class="tab-btn" data-filter="Wellness">Wellness</button>
+    </div>
+
+    <!-- Tips Grid -->
+    <div class="tips-grid-v3" id="tips-grid">
+        @foreach (var tip in ViewBag.Tips)
+        {
+            <div class="tip-card-v3" data-category="@tip.Category">
+                <div class="tip-card-top header-@tip.Color">
+                    <span class="tip-icon-v3">@tip.Icon</span>
+                </div>
+                <div class="tip-card-body">
+                    <h3 class="tip-title-v3">@tip.Title</h3>
+                    <p class="tip-text-v3">@tip.Content</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active tab
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+            const cards = document.querySelectorAll('.tip-card-v3');
+
+            cards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>

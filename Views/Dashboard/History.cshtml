@@ -1,0 +1,118 @@
+@{
+    ViewData["Title"] = "Period History";
+    Layout = "_DashboardLayout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/History.css" asp-append-version="true" />
+    <style>
+        /* Embedded Fallback Styles to ensure layout structure */
+        .history-page-v3 { background-color: #F7FAFD; min-height: 100vh; padding: 2rem; display: block; font-family: 'Inter', sans-serif; }
+        .stats-grid-v3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .stat-card-v3 { background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid #E2E8F0; }
+        .stat-card-v3 .label { display: block; font-size: 0.85rem; font-weight: 700; color: #4A5568; margin-bottom: 0.5rem; }
+        .stat-card-v3 .value { font-size: 1.75rem; font-weight: 800; color: #10517F; }
+        .history-table-card-v3 { background: white; border-radius: 1rem; border: 1px solid #E2E8F0; overflow: hidden; margin-bottom: 2rem; }
+        .history-table-v3 { width: 100%; border-collapse: collapse; }
+        .history-table-v3 th { background: #EEF7FF; color: #4A88B7; padding: 1rem; text-align: left; }
+        .history-table-v3 td { padding: 1rem; border-bottom: 1px solid #EDF2F7; }
+        .insights-bar-v3 { background: #155383; color: white; padding: 2rem; border-radius: 1rem; }
+    </style>
+}
+
+<div class="history-page-v3">
+    <!-- Header -->
+    <div class="history-header-v3">
+        <h1>Period History</h1>
+        <p>View and manage your cycle records</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid-v3">
+        <div class="stat-card-v3">
+            <span class="label">Total Cycles</span>
+            <span class="value">@ViewBag.TotalCycles</span>
+        </div>
+        <div class="stat-card-v3">
+            <span class="label">Avg Cycle Length</span>
+            <span class="value">@ViewBag.AvgCycleLength</span>
+        </div>
+        <div class="stat-card-v3">
+            <span class="label">Last Period</span>
+            <span class="value value-blue">@ViewBag.LastPeriod</span>
+        </div>
+        <div class="stat-card-v3">
+            <span class="label">Next Expected</span>
+            <span class="value value-black">@ViewBag.NextExpected</span>
+        </div>
+    </div>
+
+    <!-- History Table Card -->
+    <div class="history-table-card-v3">
+        <table class="history-table-v3">
+            <thead>
+                <tr>
+                    <th>Cycle #</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Cycle Length</th>
+                    <th>Flow</th>
+                    <th class="actions-header">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int i = ViewBag.TotalCycles; }
+                @foreach (var cycle in ViewBag.HistoryList)
+                {
+                    <tr>
+                        <td class="bold">@(i--)</td>
+                        <td>@cycle.StartDate.ToString("MMM dd, yyyy")</td>
+                        <td>@(cycle.EndDate?.ToString("MMM dd, yyyy") ?? "Ongoing")</td>
+                        <td>28 days</td>
+                        <td>
+                            <span class="flow-badge is-medium">Medium</span>
+                        </td>
+                        <td class="actions">
+                            <button class="action-btn-v3" title="Edit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            </button>
+                            <button class="action-btn-v3 delete" title="Delete">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Insights Bar -->
+    <div class="insights-bar-v3">
+        <div class="insights-header-v3">
+            <span class="insights-icon-v3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="4" y="4" width="4" height="16" fill="#D32F2F"/>
+                    <rect x="10" y="4" width="4" height="16" fill="#388E3C"/>
+                    <rect x="16" y="4" width="4" height="16" fill="#1976D2"/>
+                </svg>
+            </span>
+            <h3>Cycle Insights</h3>
+        </div>
+        <div class="insights-grid-v3">
+            <div class="insight-column-v3">
+                <span class="insight-label-v3">Regularity</span>
+                <span class="insight-value-v3">Very Regular</span>
+                <span class="insight-detail-v3">±1 day variance</span>
+            </div>
+            <div class="insight-column-v3">
+                <span class="insight-label-v3">Most Common Flow</span>
+                <span class="insight-value-v3">Medium</span>
+                <span class="insight-detail-v3">50% of cycles</span>
+            </div>
+            <div class="insight-column-v3">
+                <span class="insight-label-v3">Prediction Accuracy</span>
+                <span class="insight-value-v3">95%</span>
+                <span class="insight-detail-v3">Based on 6 cycles</span>
+            </div>
+        </div>
+    </div>
+</div>

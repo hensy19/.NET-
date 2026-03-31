@@ -1,0 +1,252 @@
+.calendar-page-v3 {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Area */
+.calendar-header-v3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.back-link {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.back-link:hover {
+    background: var(--secondary-color);
+}
+
+.title-group h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.title-group p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.header-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-cal-v3 {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-cal-v3:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-light-blue {
+    background: #A0CBE8;
+    color: var(--white);
+}
+
+.btn-accent-blue {
+    background: #6DADE1;
+    color: var(--white);
+}
+
+/* Main Calendar Card */
+.calendar-container-v3 {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(16, 81, 127, 0.1);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+}
+
+.month-selector-v3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.month-selector-v3 h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.selector-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-arrow-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.nav-arrow-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Grid */
+.calendar-grid-v3 {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.75rem;
+}
+
+.day-header {
+    text-align: center;
+    font-weight: 800;
+    color: var(--primary-color);
+    padding-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.calendar-cell-v3 {
+    aspect-ratio: 1.4;
+    background: #EBF4FA;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    position: relative;
+    transition: all 0.2s;
+}
+
+.calendar-cell-v3:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+/* Cell Types */
+.calendar-cell-v3.is-period {
+    background: #FFE3E3;
+    color: #FF7070;
+}
+
+.calendar-cell-v3.is-ovulation {
+    background: #E8D8FF;
+    color: #9D6FFF;
+}
+
+.calendar-cell-v3.is-fertile {
+    background: #FFDDF5;
+    color: #FF8AD8;
+}
+
+.calendar-cell-v3.is-today {
+    border: 3px solid var(--primary-color);
+}
+
+.cell-number {
+    position: relative;
+    z-index: 1;
+}
+
+/* Legend Section */
+.legend-card-v3 {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(16, 81, 127, 0.1);
+    padding: 1.5rem 2.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.legend-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.legend-items-v3 {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.legend-unit {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 0.5rem;
+}
+
+.swatch.is-period { background: #FFE3E3; border: 1px solid #FFCFCF; }
+.swatch.is-ovulation { background: #E8D8FF; border: 1px solid #D9C5FF; }
+.swatch.is-fertile { background: #FFDDF5; border: 1px solid #FFC9EE; }
+.swatch.is-today-border { border: 2.5px solid var(--primary-color); background: var(--white); }
+
+.label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendar-header-v3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .header-right {
+        width: 100%;
+    }
+    .btn-cal-v3 {
+        flex: 1;
+        text-align: center;
+    }
+    .calendar-grid-v3 {
+        gap: 0.5rem;
+    }
+    .calendar-cell-v3 {
+        font-size: 1.1rem;
+    }
+    .legend-items-v3 {
+        gap: 1.5rem;
+    }
+}

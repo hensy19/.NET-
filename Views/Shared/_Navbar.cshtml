@@ -1,0 +1,69 @@
+@{
+    var path = Context.Request.Path.Value ?? string.Empty;
+    var isHomePage = string.Equals(path, "/", StringComparison.OrdinalIgnoreCase)
+        || string.IsNullOrEmpty(path)
+        || string.Equals(path, "/Public", StringComparison.OrdinalIgnoreCase)
+        || string.Equals(path, "/Public/Home", StringComparison.OrdinalIgnoreCase);
+    var isLoggedIn = Context.Session.GetString("Role") == "User";
+    var userName = Context.Session.GetString("Name") ?? "User";
+}
+
+<nav class="navbar @(isHomePage ? "navbar-home" : "navbar-dashboard")">
+    <div class="navbar-container">
+        <a class="navbar-logo" asp-controller="Public" asp-action="Home">
+            <img src="~/images/logo.png" alt="cleo logo" class="logo-image" />
+        </a>
+
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="navbar-menu" id="navbar-menu">
+            @if (isHomePage)
+            {
+                <a class="nav-link" href="#home">Home</a>
+                <a class="nav-link" href="#features">Features</a>
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" asp-controller="Public" asp-action="Login">Login</a>
+                <a class="nav-link nav-signup-btn" asp-controller="Public" asp-action="Signup">Sign Up</a>
+            }
+            else if (isLoggedIn)
+            {
+                <div class="navbar-links-right">
+                    <a class="nav-link @(path == "/dashboard" ? "nav-link-active" : "")" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    <a class="nav-link @(path == "/log-period" ? "nav-link-active" : "")" asp-controller="Dashboard" asp-action="LogPeriod">Log Cycle</a>
+                    <a class="nav-link @(path == "/log-symptoms" ? "nav-link-active" : "")" asp-controller="Dashboard" asp-action="LogSymptoms">Symptoms</a>
+                    <a class="nav-link @(path == "/mood" ? "nav-link-active" : "")" asp-controller="Dashboard" asp-action="Mood">Mood</a>
+                    <a class="nav-link @(path == "/calendar" ? "nav-link-active" : "")" asp-controller="Dashboard" asp-action="Calendar">Calendar</a>
+                    <a class="nav-link @(path == "/notes" ? "nav-link-active" : "")" asp-controller="Dashboard" asp-action="Notes">Notes</a>
+                    <a class="nav-link @(path == "/tips" ? "nav-link-active" : "")" asp-controller="Dashboard" asp-action="Tips">Smart Tips</a>
+                    
+                    <div class="profile-dropdown-container">
+                        <button class="nav-profile-trigger" id="profile-trigger">
+                            <img src="https://ui-avatars.com/api/?name=Ava+Carter&background=EBF8FF&color=10517F" alt="Profile" class="nav-avatar-img-v2" />
+                        </button>
+                        <div class="profile-dropdown-menu" id="profile-menu">
+                            <a class="dropdown-item" asp-controller="Dashboard" asp-action="Profile">👤 Profile</a>
+                            <a class="dropdown-item" asp-controller="Dashboard" asp-action="ChangePassword">🔒 Change Password</a>
+                            <form asp-controller="Public" asp-action="Logout" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="dropdown-item logout-red">🚪 Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <a class="nav-link" asp-controller="Public" asp-action="Login">Login</a>
+                <a class="nav-link nav-signup-btn" asp-controller="Public" asp-action="Signup">Sign Up</a>
+            }
+        </div>
+    </div>
+</nav>
+
+<script>
+    document.getElementById('hamburger-btn').addEventListener('click', function () {
+        document.getElementById('navbar-menu').classList.toggle('active');
+    });
+</script>

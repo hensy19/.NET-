@@ -1,0 +1,195 @@
+.symptom-logger-page-v3 {
+    min-height: 100vh;
+    background-color: var(--white); /* White background for this page */
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.symptom-header-v3 {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.back-link-v3 {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.back-link-v3:hover {
+    background: rgba(16, 81, 127, 0.08);
+}
+
+.title-group-v3 h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.title-group-v3 p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+}
+
+/* Form Container */
+.symptom-form-v3 {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Cards */
+.symptom-card-v3, .notes-card-v3 {
+    background: var(--white);
+    padding: 2rem 2.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.card-title-v3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #94A3B8;
+    margin-bottom: 2rem;
+    text-transform: none;
+}
+
+/* Symptoms Grid */
+.symptoms-grid-v3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.symptom-btn-v3 {
+    cursor: pointer;
+}
+
+.symptom-btn-v3 input {
+    display: none;
+}
+
+.btn-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    border: 1.5px solid #E2E8F0;
+    border-radius: var(--radius-md);
+    transition: all 0.2s;
+    background: var(--white);
+}
+
+.btn-content .icon {
+    font-size: 1.75rem;
+}
+
+.btn-content .name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.symptom-btn-v3:hover .btn-content {
+    border-color: var(--primary-color);
+    background: #F8FAFC;
+    transform: translateY(-2px);
+}
+
+.symptom-btn-v3 input:checked + .btn-content {
+    border-color: var(--primary-color);
+    background: #EBF8FF;
+}
+
+.symptom-btn-v3 input:checked + .btn-content .name {
+    color: var(--primary-color);
+}
+
+/* Card Footer */
+.card-footer-v3 {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-save-v3 {
+    background: #87AFC7; /* Light blue save button from design */
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-save-v3:hover {
+    background: #6DADE1;
+}
+
+/* Notes Card */
+.notes-card-v3 {
+    padding-bottom: 3rem;
+}
+
+.textarea-wrapper-v3 {
+    background: #F1F5F9; /* Specific grey background from image */
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+}
+
+.textarea-wrapper-v3 textarea {
+    width: 100%;
+    min-height: 80px;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+.textarea-wrapper-v3 textarea::placeholder {
+    color: #94A3B8;
+}
+
+/* Status Msg */
+.status-msg-v3 {
+    margin-top: 2rem;
+    text-align: center;
+    color: #059669;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .symptoms-grid-v3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
