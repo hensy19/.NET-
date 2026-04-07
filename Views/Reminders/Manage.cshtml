@@ -18,26 +18,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             margin-bottom: 2rem;
         }
-        .add-reminder-form {
-            background: #F8FAFC;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border: 1px solid #E2E8F0;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr auto;
-            gap: 1rem;
-            align-items: end;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 0.85rem;
-        }
+
         .form-input {
             width: 100%;
             padding: 0.75rem;
@@ -132,33 +113,6 @@
             </div>
         }
 
-        <!-- Add Reminder Section -->
-        <div class="add-reminder-form">
-            <h3 style="margin-top:0; margin-bottom: 1rem; color: var(--primary-color);">Create New Reminder</h3>
-            <form asp-action="Create" method="post">
-                @Html.AntiForgeryToken()
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" name="title" class="form-input" placeholder="e.g. Start taking vitamins" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Date</label>
-                        <input type="date" name="date" class="form-input" required value="@DateTime.Now.ToString("yyyy-MM-dd")" />
-                    </div>
-                    <div class="form-group">
-                        <label>Type</label>
-                        <select name="type" class="form-input">
-                            <option value="Custom">Custom</option>
-                            <option value="Period">Period</option>
-                            <option value="Health">Health</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-add">Add</button>
-                </div>
-            </form>
-        </div>
 
         <!-- Reminders List -->
         <div class="manage-reminders-card">
