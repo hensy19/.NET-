@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Log Period";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Log Your Period</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4">
+                <form>
+                    <div class="mb-3">
+                        <label for="startDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="startDate" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="endDate" class="form-label">End Date</label>
+                        <input type="date" class="form-control" id="endDate" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="flowIntensity" class="form-label">Flow Intensity</label>
+                        <select class="form-select" id="flowIntensity" required>
+                            <option value="">Select...</option>
+                            <option value="light">Light</option>
+                            <option value="medium">Medium</option>
+                            <option value="heavy">Heavy</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="notes" class="form-label">Notes / Symptoms</label>
+                        <textarea class="form-control" id="notes" rows="3" placeholder="Optional"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger w-100">Log Period</button>
+                </form>
+            </div>
+
+
+            <a href="/User/Calendar" class="btn btn-outline-secondary mt-3 w-100">Back to Calendar</a>
+        </div>
+    </div>
+</div>

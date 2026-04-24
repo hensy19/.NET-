@@ -1,0 +1,45 @@
+﻿@{
+	Layout = "~/Views/Shared/_OnboardingLayout.cshtml";
+}
+
+<div class="progress">
+	<div class="active"></div>
+	<div></div>
+	<div></div>
+</div>
+
+<div class="question">
+	What is your age group?
+</div>
+
+<form asp-action="AgeGroup" method="post">
+
+	<label class="option">
+		<input type="radio" name="ageGroup" value="Under18"> Under 18
+	</label>
+
+	<label class="option">
+		<input type="radio" name="ageGroup" value="18-25"> 18 - 25
+	</label>
+
+	<label class="option">
+		<input type="radio" name="ageGroup" value="26-35"> 26 - 35
+	</label>
+
+	<label class="option">
+		<input type="radio" name="ageGroup" value="36-45"> 36 - 45
+	</label>
+
+	<label class="option">
+		<input type="radio" name="ageGroup" value="Above45"> Above 45
+	</label>
+
+	<div class="btn-row">
+
+		<div></div>
+
+		<button class="btn">Continue</button>
+
+	</div>
+
+</form>

@@ -1,0 +1,27 @@
+﻿@{
+	Layout = "~/Views/Shared/_OnboardingLayout.cshtml";
+}
+
+<div class="progress">
+	<div class="active"></div>
+	<div class="active"></div>
+	<div class="active"></div>
+</div>
+
+<div class="question">
+	What is your average cycle length?
+</div>
+
+<form asp-action="CycleLength" method="post">
+
+	<input type="number" name="cycleLength" min="20" max="40" placeholder="e.g. 28 days">
+
+	<div class="btn-row">
+
+		<a asp-action="LastPeriod" class="btn-outline">Back</a>
+
+		<button class="btn">Finish</button>
+
+	</div>
+
+</form>

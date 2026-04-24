@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Cycle Calendar";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="calendar-wrapper">
+
+    <!-- HEADER -->
+    <section class="calendar-header">
+        <div>
+            <h2>Cycle Calendar</h2>
+            <p>Track your cycle across the month</p>
+        </div>
+
+        <div class="header-actions">
+            <a asp-controller="User" asp-action="LogPeriod" class="btn-primary">
+                Log Period
+            </a>
+
+            <a asp-controller="User" asp-action="History" class="btn-outline">
+                View History
+            </a>
+        </div>
+    </section>
+
+
+    <!-- CALENDAR CARD -->
+    <section class="calendar-card">
+
+        <div class="month-row">
+            <button id="prevMonth">&#8249;</button>
+            <h3 id="monthYear">February 2026</h3>
+            <button id="nextMonth">&#8250;</button>
+        </div>
+
+        <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+
+        <div class="days-grid" id="calendarDays"></div>
+
+    </section>
+
+
+    <!-- LEGEND CARD -->
+    <section class="legend-card">
+        <div class="legend-item">
+            <span class="box period"></span> Period Days
+        </div>
+        <div class="legend-item">
+            <span class="box ovulation"></span> Ovulation
+        </div>
+        <div class="legend-item">
+            <span class="box fertile"></span> Fertile Window
+        </div>
+        <div class="legend-item">
+            <span class="box today"></span> Today
+        </div>
+    </section>
+
+</div>

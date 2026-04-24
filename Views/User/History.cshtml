@@ -1,0 +1,69 @@
+﻿@{
+  
+    ViewData["Title"] = "Period History";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+
+<div class="history-container">
+
+    <h2 class="history-title">Period History</h2>
+
+    <!-- Filter Section -->
+    <div class="filter-card">
+        <label for="monthFilter">Filter by Month</label>
+        <select id="monthFilter">
+            <option>All</option>
+            <option>February 2026</option>
+            <option>January 2026</option>
+            <option>December 2025</option>
+        </select>
+    </div>
+
+
+    <!-- History Table -->
+    <div class="table-card">
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Duration</th>
+                    <th>Flow</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10 Feb 2026</td>
+                    <td>14 Feb 2026</td>
+                    <td>5 Days</td>
+                    <td><span class="flow light">Light</span></td>
+                    <td>Mild cramps</td>
+                </tr>
+
+                <tr>
+                    <td>12 Jan 2026</td>
+                    <td>16 Jan 2026</td>
+                    <td>5 Days</td>
+                    <td><span class="flow medium">Medium</span></td>
+                    <td>Normal cycle</td>
+                </tr>
+
+                <tr>
+                    <td>9 Dec 2025</td>
+                    <td>14 Dec 2025</td>
+                    <td>6 Days</td>
+                    <td><span class="flow heavy">Heavy</span></td>
+                    <td>Heavy first two days</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="back-btn">
+        <a href="/User/Dashboard">Back to Dashboard</a>
+    </div>
+
+</div>

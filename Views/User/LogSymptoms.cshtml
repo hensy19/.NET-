@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "LogSymptoms";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="log-container">
+    <div class="log-card">
+
+        <h2 class="log-title">Log Symptoms</h2>
+
+        <!-- Date -->
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" class="input-field">
+        </div>
+
+        <!-- Flow -->
+        <div class="form-group">
+            <label>Flow Intensity</label>
+            <div class="flow-options">
+                <button type="button">None</button>
+                <button type="button">Light</button>
+                <button type="button">Medium</button>
+                <button type="button">Heavy</button>
+                <button type="button">Spotting</button>
+            </div>
+        </div>
+
+        <!-- Symptoms -->
+        <div class="form-group">
+            <label>Symptoms</label>
+            <div class="symptom-grid">
+                <label><input type="checkbox"> Cramps</label>
+                <label><input type="checkbox"> Headache</label>
+                <label><input type="checkbox"> Back Pain</label>
+                <label><input type="checkbox"> Bloating</label>
+                <label><input type="checkbox"> Acne</label>
+                <label><input type="checkbox"> Fatigue</label>
+                <label><input type="checkbox"> Nausea</label>
+                <label><input type="checkbox"> Mood Swings</label>
+            </div>
+        </div>
+
+        <!-- Pain Scale -->
+        <div class="form-group">
+            <label>Pain Level (0 - 10)</label>
+            <input type="range" min="0" max="10" class="slider" id="painRange">
+            <div class="slider-value">
+                <span id="painValue">5</span> / 10
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="form-group">
+            <label>Additional Notes</label>
+            <textarea rows="3" class="input-field"></textarea>
+        </div>
+
+        <button class="save-btn">Save Symptoms</button>
+
+    </div>
+</div>
+
+<script>
+    const range = document.getElementById("painRange");
+    const output = document.getElementById("painValue");
+
+    range.addEventListener("input", function () {
+        output.textContent = this.value;
+    });
+</script>
+

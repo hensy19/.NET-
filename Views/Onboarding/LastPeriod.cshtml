@@ -1,0 +1,27 @@
+﻿@{
+	Layout = "~/Views/Shared/_OnboardingLayout.cshtml";
+}
+
+<div class="progress">
+	<div class="active"></div>
+	<div class="active"></div>
+	<div></div>
+</div>
+
+<div class="question">
+	Select the first day of your previous period
+</div>
+
+<form asp-action="LastPeriod" method="post">
+
+	<input type="date" name="lastPeriod" required>
+
+	<div class="btn-row">
+
+		<a asp-action="AgeGroup" class="btn-outline">Back</a>
+
+		<button class="btn">Continue</button>
+
+	</div>
+
+</form>

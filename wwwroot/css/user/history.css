@@ -1,0 +1,131 @@
+﻿/* Overall Page */
+body {
+    background-color: #f4f9ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.history-container {
+    width: 85%;
+    margin: 40px auto;
+}
+
+.history-title {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 30px;
+}
+
+/* Filter Card */
+.filter-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.08);
+    margin-bottom: 25px;
+}
+
+    .filter-card label {
+        font-weight: 500;
+        margin-right: 15px;
+        color: #1e3a8a;
+    }
+
+    .filter-card select {
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        background-color: #f0f7ff;
+    }
+
+/* Table Card */
+.table-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.08);
+}
+
+/* Table */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .history-table thead {
+        background-color: #e0f2ff;
+    }
+
+    .history-table th,
+    .history-table td {
+        padding: 14px;
+        text-align: center;
+    }
+
+    .history-table th {
+        color: #1e3a8a;
+        font-weight: 600;
+    }
+
+    .history-table tbody tr:nth-child(even) {
+        background-color: #f8fbff;
+    }
+
+    .history-table tbody tr:hover {
+        background-color: #e6f4ff;
+        transition: 0.3s ease;
+    }
+
+/* Flow Badges */
+.flow {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+    .flow.light {
+        background-color: #dbeafe;
+        color: #1d4ed8;
+    }
+
+    .flow.medium {
+        background-color: #bfdbfe;
+        color: #1e40af;
+    }
+
+    .flow.heavy {
+        background-color: #93c5fd;
+        color: #1e3a8a;
+    }
+
+/* Back Button */
+.back-btn {
+    text-align: center;
+    margin-top: 25px;
+}
+
+    .back-btn a {
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: #1e3a8a;
+        color: #ffffff;
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+
+        .back-btn a:hover {
+            background-color: #1d4ed8;
+        }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .history-container {
+        width: 95%;
+    }
+
+    .history-table th,
+    .history-table td {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+}

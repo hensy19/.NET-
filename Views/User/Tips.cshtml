@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Health Tips";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+}
+
+<section class="tips-section">
+    <div class="container">
+
+        <h2 class="page-title">Period Care & Wellness Tips 💙</h2>
+
+        <!-- CATEGORY BUTTONS -->
+        <div class="category-buttons">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="diet">Diet</button>
+            <button class="category-btn" data-category="exercise">Exercise</button>
+            <button class="category-btn" data-category="hygiene">Hygiene</button>
+            <button class="category-btn" data-category="mental">Mental Health</button>
+            <button class="category-btn" data-category="pain">Pain Relief</button>
+        </div>
+
+        <!-- TIPS GRID -->
+        <div class="tips-grid">
+
+            <!-- DIET -->
+            <div class="tip-card" data-category="diet">
+                <h4>🥗 Iron Rich Food</h4>
+                <p>Eat spinach, dates, and lentils to maintain iron levels.</p>
+            </div>
+
+            <div class="tip-card" data-category="diet">
+                <h4>💧 Stay Hydrated</h4>
+                <p>Drink at least 8 glasses of water daily.</p>
+            </div>
+
+            <!-- EXERCISE -->
+            <div class="tip-card" data-category="exercise">
+                <h4>🧘 Light Yoga</h4>
+                <p>Gentle stretching reduces cramps and improves mood.</p>
+            </div>
+
+            <div class="tip-card" data-category="exercise">
+                <h4>🚶 Walking</h4>
+                <p>20-minute walk improves blood circulation.</p>
+            </div>
+
+            <!-- HYGIENE -->
+            <div class="tip-card" data-category="hygiene">
+                <h4>🧼 Change Pads Regularly</h4>
+                <p>Change every 4-6 hours to avoid infections.</p>
+            </div>
+
+            <div class="tip-card" data-category="hygiene">
+                <h4>🚿 Maintain Cleanliness</h4>
+                <p>Use mild soap and warm water.</p>
+            </div>
+
+            <!-- MENTAL -->
+            <div class="tip-card" data-category="mental">
+                <h4>🧘‍♀ Relaxation</h4>
+                <p>Practice breathing exercises to reduce stress.</p>
+            </div>
+
+            <div class="tip-card" data-category="mental">
+                <h4>📔 Journaling</h4>
+                <p>Track mood swings and emotions.</p>
+            </div>
+
+            <!-- PAIN -->
+            <div class="tip-card" data-category="pain">
+                <h4>🔥 Heating Pad</h4>
+                <p>Heat therapy helps relax muscles.</p>
+            </div>
+
+            <div class="tip-card" data-category="pain">
+                <h4>💊 Mild Painkillers</h4>
+                <p>Consult doctor before taking medication.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    const buttons = document.querySelectorAll(".category-btn");
+    const cards = document.querySelectorAll(".tip-card");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+
+            document.querySelector(".category-btn.active").classList.remove("active");
+            btn.classList.add("active");
+
+            const category = btn.getAttribute("data-category");
+
+            cards.forEach(card => {
+                card.classList.remove("show");
+                if (category === "all" || card.dataset.category === category) {
+                    setTimeout(() => {
+                        card.classList.add("show");
+                    }, 100);
+                }
+            });
+        });
+    });
+
+    // show all initially
+    window.onload = () => {
+        cards.forEach(card => card.classList.add("show"));
+    };
+</script>

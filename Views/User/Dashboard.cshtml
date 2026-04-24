@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="dashboard-wrapper">
+
+    <!-- TOP SUMMARY -->
+    <section class="top-summary">
+        <div class="summary-left">
+            <h2>Your Cycle Overview</h2>
+            <p>Track patterns, understand your rhythm, and stay informed.</p>
+        </div>
+        <div class="summary-right">
+            <span class="cycle-status">Cycle Day 12</span>
+            <span class="phase-badge">Follicular Phase</span>
+        </div>
+    </section>
+
+
+    <!-- MAIN GRID -->
+    <section class="focus-section">
+
+        <!-- PHASE INFO -->
+        <div class="phase-info">
+            <h4>Phase Insight</h4>
+            <p>
+                Estrogen levels are rising. This is an optimal time for
+                focus-driven tasks, social interaction, and strength-based activities.
+            </p>
+
+            <div class="mini-stats">
+                <div>
+                    <span>Cycle Length</span>
+                    <strong>28 Days</strong>
+                </div>
+                <div>
+                    <span>Average Period</span>
+                    <strong>5 Days</strong>
+                </div>
+                <div>
+                    <span>Ovulation</span>
+                    <strong>Day 14 (Predicted)</strong>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CYCLE VISUAL -->
+        <div class="cycle-visual">
+            <div class="ring">
+                <div class="ring-inner">
+                    <h1>12</h1>
+                    <span>of 28</span>
+                </div>
+            </div>
+            <p class="next-period">Next period expected in 8 days</p>
+        </div>
+
+
+        <!-- WELLNESS METRICS -->
+        <div class="wellness-metrics">
+            <h4>Wellness Metrics</h4>
+
+            <div class="metric-line">
+                <span>Mood Stability</span>
+                <div class="bar mood"></div>
+            </div>
+
+            <div class="metric-line">
+                <span>Energy Levels</span>
+                <div class="bar energy"></div>
+            </div>
+
+            <div class="metric-line">
+                <span>Hydration</span>
+                <div class="bar hydration"></div>
+            </div>
+
+            <div class="metric-line">
+                <span>Sleep Quality</span>
+                <div class="bar sleep"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INSIGHT STRIP -->
+    <section class="insights-section">
+        <div class="insight">
+            <h5>Cycle Consistency</h5>
+            <p>Your last 3 cycles remained within a 1–2 day variation range.</p>
+        </div>
+
+        <div class="insight">
+            <h5>Nutrition Focus</h5>
+            <p>Increase iron-rich foods during upcoming luteal phase.</p>
+        </div>
+
+        <div class="insight">
+            <h5>Activity Summary</h5>
+            <p>3 symptoms logged this month. Continue consistent tracking.</p>
+        </div>
+    </section>
+
+
+    <!-- CONVERSATIONAL ACTION PROMPTS -->
+    <section class="action-prompts">
+
+        <div class="prompt-row">
+            <div class="prompt-text">
+                <span class="title">How are you feeling today?</span>
+                <span class="sub">Track mood, discomfort, or energy changes.</span>
+            </div>
+            <a href="#" class="prompt-link">Add Symptoms</a>
+        </div>
+
+        <div class="prompt-row">
+            <div class="prompt-text">
+                <span class="title">Review your monthly rhythm</span>
+                <span class="sub">Understand patterns and variations.</span>
+            </div>
+            <a href="#" class="prompt-link">View Calendar</a>
+        </div>
+
+        <div class="prompt-row">
+            <div class="prompt-text">
+                <span class="title">Need guidance for this phase?</span>
+                <span class="sub">Get personalized wellness tips.</span>
+            </div>
+            <a href="#" class="prompt-link">Read Tips</a>
+        </div>
+
+        <div class="prompt-row">
+            <div class="prompt-text">
+                <span class="title">Analyze previous cycles</span>
+                <span class="sub">Compare trends across months.</span>
+            </div>
+            <a href="#" class="prompt-link">Cycle History</a>
+        </div>
+
+        <div class="prompt-row">
+            <div class="prompt-text">
+                <span class="title">Need professional support?</span>
+                <span class="sub">Connect with a verified healthcare expert.</span>
+            </div>
+            <a href="#" class="prompt-link">Consult Doctor</a>
+        </div>
+
+    </section>
+
+</div>

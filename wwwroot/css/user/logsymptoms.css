@@ -1,0 +1,139 @@
+﻿/* Log Page Container */
+.log-container {
+    width: 60%;
+    margin: 40px auto;
+}
+
+/* Card */
+.log-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.08);
+}
+
+/* Title */
+.log-title {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 25px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        font-weight: 500;
+        color: #1e3a8a;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+/* Inputs */
+.input-field {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background-color: #f0f7ff;
+}
+
+    .input-field:focus {
+        outline: none;
+        border-color: #1d4ed8;
+    }
+
+/* Flow Buttons */
+.flow-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+    .flow-options button {
+        padding: 8px 15px;
+        border-radius: 20px;
+        border: 1px solid #cbd5e1;
+        background-color: #f0f7ff;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+        .flow-options button:hover,
+        .flow-options button.active {
+            background-color: #1e3a8a;
+            color: #ffffff;
+        }
+
+/* Symptom Grid */
+.symptom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+    .symptom-grid label {
+        font-size: 0.95rem;
+    }
+
+/* Slider */
+.slider {
+    width: 100%;
+}
+
+.slider-value {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* Mood Buttons */
+.mood-options {
+    display: flex;
+    gap: 10px;
+}
+
+    .mood-options button {
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        background-color: #f0f7ff;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+        .mood-options button:hover,
+        .mood-options button.active {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+/* Save Button */
+.save-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #1e3a8a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+    .save-btn:hover {
+        background-color: #1d4ed8;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .log-container {
+        width: 95%;
+    }
+
+    .symptom-grid {
+        grid-template-columns: 1fr;
+    }
+}

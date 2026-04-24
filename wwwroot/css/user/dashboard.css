@@ -1,0 +1,312 @@
+﻿/* ======================================
+   DASHBOARD WRAPPER
+====================================== */
+
+.dashboard-wrapper {
+    padding: 60px 100px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #eef6ff, #f8fbff);
+    font-family: 'Segoe UI', sans-serif;
+    color: #1f2d3d;
+}
+
+
+/* ======================================
+   TOP SUMMARY
+====================================== */
+
+.top-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.summary-left h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.summary-left p {
+    color: #6c757d;
+    font-size: 15px;
+}
+
+.summary-right {
+    text-align: right;
+}
+
+.cycle-status {
+    display: block;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.phase-badge {
+    background: #d8ecff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #0d6efd;
+    margin-top: 8px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+
+/* ======================================
+   MAIN GRID
+====================================== */
+
+.focus-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+
+/* ======================================
+   PHASE INFO
+====================================== */
+
+.phase-info h4 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.phase-info p {
+    margin-bottom: 25px;
+    color: #495057;
+    line-height: 1.6;
+}
+
+.mini-stats div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.mini-stats span {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.mini-stats strong {
+    font-weight: 600;
+}
+
+
+/* ======================================
+   CYCLE RING VISUAL
+====================================== */
+
+.cycle-visual {
+    text-align: center;
+}
+
+.ring {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: conic-gradient(#4dabf7 0% 43%, #dceeff 43% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    transition: transform 0.3s ease;
+}
+
+    .ring:hover {
+        transform: scale(1.03);
+    }
+
+.ring-inner {
+    width: 190px;
+    height: 190px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+    .ring-inner h1 {
+        font-size: 52px;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .ring-inner span {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+.next-period {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+
+/* ======================================
+   WELLNESS METRICS
+====================================== */
+
+.wellness-metrics h4 {
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.metric-line {
+    margin-bottom: 25px;
+}
+
+    .metric-line span {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 8px;
+        color: #495057;
+    }
+
+.bar {
+    height: 8px;
+    border-radius: 20px;
+    background: #e6f2ff;
+    position: relative;
+    overflow: hidden;
+}
+
+    .bar::after {
+        content: '';
+        position: absolute;
+        height: 8px;
+        border-radius: 20px;
+        background: linear-gradient(to right, #4dabf7, #74c0fc);
+        left: 0;
+        top: 0;
+        transition: width 0.5s ease;
+    }
+
+    /* Individual widths */
+    .bar.mood::after {
+        width: 75%;
+    }
+
+    .bar.energy::after {
+        width: 85%;
+    }
+
+    .bar.hydration::after {
+        width: 60%;
+    }
+
+    .bar.sleep::after {
+        width: 70%;
+    }
+
+
+/* ======================================
+   INSIGHTS SECTION
+====================================== */
+
+.insights-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.insight {
+    padding-top: 20px;
+    border-top: 2px solid #e3f2fd;
+}
+
+    .insight h5 {
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .insight p {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+
+/* ======================================
+   ACTION PROMPTS
+====================================== */
+
+.action-prompts {
+    border-top: 1px solid #e6f1fb;
+}
+
+.prompt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #f2f7fc;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+    /* Left accent indicator */
+    .prompt-row::before {
+        content: "";
+        position: absolute;
+        left: -25px;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: transparent;
+        border-radius: 10px;
+        transition: 0.3s ease;
+    }
+
+    /* Hover effects */
+    .prompt-row:hover {
+        background: rgba(77, 171, 247, 0.05);
+        padding-left: 15px;
+    }
+
+        .prompt-row:hover::before {
+            background: #4dabf7;
+        }
+
+.prompt-text .title {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.prompt-text .sub {
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 4px;
+}
+
+.prompt-link {
+    text-decoration: none;
+    font-weight: 600;
+    color: #4dabf7;
+    position: relative;
+}
+
+    /* Animated underline */
+    .prompt-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background: #4dabf7;
+        transition: width 0.3s ease;
+    }
+
+    .prompt-link:hover::after {
+        width: 100%;
+    }

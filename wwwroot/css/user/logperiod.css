@@ -1,0 +1,93 @@
+﻿/* Container & Card Styling */
+.container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+h2 {
+    color: #d6336c; /* pink-red for menstrual theme */
+}
+
+/* Form Inputs */
+.form-control, .form-select, textarea {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+    .form-control:focus, .form-select:focus, textarea:focus {
+        border-color: #d6336c;
+        box-shadow: 0 0 5px rgba(214,51,108,0.3);
+        outline: none;
+    }
+
+/* Buttons */
+.btn-danger {
+    background-color: #d6336c;
+    border-color: #d6336c;
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .btn-danger:hover {
+        background-color: #c12b5b;
+        transform: translateY(-2px);
+    }
+
+.btn-outline-secondary {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+    .btn-outline-secondary:hover {
+        background-color: #f8f9fa;
+        color: #d6336c;
+    }
+
+/* Recent Logs */
+.list-group-item {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    background-color: #fdf2f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .list-group-item .badge {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+        border-radius: 12px;
+    }
+
+/* Flow Colors */
+.badge.bg-danger {
+    background-color: #d6336c !important;
+}
+
+.badge.bg-warning {
+    background-color: #ffc107 !important;
+    color: #212529;
+}
+
+.badge.bg-info {
+    background-color: #0dcaf0 !important;
+    color: #212529;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+    .card {
+        margin: 0 10px;
+    }
+}

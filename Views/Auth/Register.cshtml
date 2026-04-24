@@ -1,0 +1,49 @@
+﻿<div class="auth-wrapper">
+    <div class="auth-container">
+
+        <div class="auth-form">
+            <h2>Create Your Account</h2>
+            <p>Start your cycle tracking journey today</p>
+
+            <form onsubmit="return validateRegister()">
+
+                <div class="form-group">
+                    <input type="text" id="regName" placeholder=" " required>
+                    <label>Full Name</label>
+                    <div class="error-text" id="regNameError"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="regEmail" placeholder=" " required>
+                    <label>Email Address</label>
+                    <div class="error-text" id="regEmailError"></div>
+                </div>
+
+                <div class="form-group password-wrapper">
+                    <input type="password" id="regPassword" placeholder=" " required>
+                    <label>Password</label>
+                    <span class="toggle-password" onclick="togglePassword('regPassword')">Show</span>
+                </div>
+
+                <div class="form-group password-wrapper">
+                    <input type="password" id="regConfirmPassword" placeholder=" " required>
+                    <label>Confirm Password</label>
+                    <span class="toggle-password" onclick="togglePassword('regConfirmPassword')">Show</span>
+                    <div class="error-text" id="regPasswordError"></div>
+                </div>
+
+                <button class="auth-btn">Create Account</button>
+            </form>
+
+            <div class="auth-footer">
+                Already have an account?
+                <a asp-action="Login">Sign in</a>
+            </div>
+        </div>
+
+        <div class="auth-image">
+            <img src="~/images/signup.svg" alt="">
+        </div>
+
+    </div>
+</div>
